@@ -1,6 +1,8 @@
 package com.example.hibernate;
 
-import jakarta.persistence.*;
+
+
+import javax.persistence.*;
 
 @Entity
 @Table(name="items")
@@ -46,5 +48,11 @@ public class Item {
     public Item(String title, Integer price) {
         this.title = title;
         this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Item [id = %d, title = '%s', price = %d]", id, title, price);
+
     }
 }
