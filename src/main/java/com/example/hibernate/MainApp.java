@@ -27,6 +27,18 @@ public class MainApp {
         System.out.println(itemFromDb);
         session.getTransaction().commit();
 
+        // == UPDATE
+        session = sessionFactory.getCurrentSession();
+        session.beginTransaction();
+        Item itemFromDb2 = session.get(Item.class, 1L);
+        System.out.println(itemFromDb2);
+        itemFromDb2.setPrice(200);
+        System.out.println(itemFromDb2);
+        session.getTransaction().commit();
+
+
+    sessionFactory.close();
+
 
     }
 }
