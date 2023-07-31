@@ -11,14 +11,22 @@ public class MainApp {
 
         Session session = null;
         // == CREATE ==
+//        session = sessionFactory.getCurrentSession();
+//        session.beginTransaction();
+//        Item item = new Item("Milk", 80);
+//        System.out.println(item);
+//        session.save(item);
+//        session.getTransaction().commit();
+//        System.out.println(item);
+//        sessionFactory.close();
+
+        // == READ
         session = sessionFactory.getCurrentSession();
         session.beginTransaction();
-        Item item = new Item("Milk", 80);
-        System.out.println(item);
-        session.save(item);
+        Item itemFromDb = session.get(Item.class, 1L);
+        System.out.println(itemFromDb);
         session.getTransaction().commit();
-        System.out.println(item);
-        sessionFactory.close();
+
 
     }
 }
