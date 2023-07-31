@@ -14,10 +14,10 @@ public class MainApp {
         session = sessionFactory.getCurrentSession();
         session.beginTransaction();
         Item item = new Item("Milk", 80);
+        System.out.println(item);
         session.save(item);
-
         session.getTransaction().commit();
-
+        System.out.println(item);
         sessionFactory.close();
 
     }
